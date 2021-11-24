@@ -34,7 +34,7 @@ class Peserta_model extends CI_Model
      *
      * @return void
      */
-    public function get_join_where($select, $join, $where)
+    public function get_join_where(string $select = '*', array $join, array $where)
     {
         $this->db->select($select);
         $this->db->from($this->table);
@@ -55,7 +55,7 @@ class Peserta_model extends CI_Model
      *
      * @return void
      */
-    public function get_join_where_order($select, $join, $where, $order)
+    public function get_join_where_order(string $select = '*', array $join, array $where, array $order)
     {
         $this->db->select($select);
         $this->db->from($this->table);
@@ -76,7 +76,7 @@ class Peserta_model extends CI_Model
      *
      * @return void
      */
-    public function get_join_order($select, $join, $order)
+    public function get_join_order(string $select = '*', array $join, array $order)
     {
         $this->db->select($select);
         $this->db->from($this->table);
@@ -104,7 +104,7 @@ class Peserta_model extends CI_Model
      *
      * @return void
      */
-    public function get_all_order($order)
+    public function get_all_order(array $order)
     {
         $this->db->order_by($order[0], $order[1]);
         return $this->db->get($this->table);
@@ -117,7 +117,7 @@ class Peserta_model extends CI_Model
      *
      * @return void
      */
-    public function get_join($join)
+    public function get_join(array $join)
     {
         $this->db->select('*');
         $this->db->from($this->table);
