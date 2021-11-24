@@ -14,6 +14,14 @@ class Peserta_model extends CI_Model
         $this->db->insert($this->table, $object);
     }
 
+    public function get_like(array $like, string $select = '*')
+    {
+        $this->db->select($select);
+        $this->db->from($this->table);
+        $this->db->like($like);
+        return $this->db->get();
+    }
+
     /**
      * mengambil data tabel dengan kondisi where
      *
