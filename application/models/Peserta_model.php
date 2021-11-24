@@ -39,7 +39,7 @@ class Peserta_model extends CI_Model
         $this->db->select($select);
         $this->db->from($this->table);
         foreach ($join as $data) {
-            $this->db->join($data[0], $data[1], 'left');
+            $this->db->join($data[0], $data[1], $data[3] ?? 'left');
         }
         $this->db->where($where);
         return $this->db->get();
@@ -60,7 +60,7 @@ class Peserta_model extends CI_Model
         $this->db->select($select);
         $this->db->from($this->table);
         foreach ($join as $data) {
-            $this->db->join($data[0], $data[1], 'left');
+            $this->db->join($data[0], $data[1], $data[3] ?? 'left');
         }
         $this->db->where($where);
         $this->db->order_by($order[0], $order[1]);
@@ -81,7 +81,7 @@ class Peserta_model extends CI_Model
         $this->db->select($select);
         $this->db->from($this->table);
         foreach ($join as $data) {
-            $this->db->join($data[0], $data[1], 'left');
+            $this->db->join($data[0], $data[1], $data[3] ?? 'left');
         }
         $this->db->order_by($order[0], $order[1]);
         return $this->db->get();
