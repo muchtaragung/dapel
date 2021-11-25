@@ -14,6 +14,11 @@ class Peserta_model extends CI_Model
         $this->db->insert($this->table, $object);
     }
 
+    public function save_batch(array $object)
+    {
+        $this->db->insert_batch($this->table, $object);
+    }
+
     public function get_like(array $like, string $select = '*')
     {
         $this->db->select($select);
