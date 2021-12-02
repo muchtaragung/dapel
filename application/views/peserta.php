@@ -32,9 +32,9 @@
 												<button type="submit" class=" btn btn-success">Submit</button>
 											</div>
 										</div>
-										<div class="col-2">
+										<div class="col-4">
 											<div class="form-group">
-												<button type="" class=" btn btn-danger disabled">Delete</button>
+												<button type="" class=" btn btn-danger disabled">Delete All Data</button>
 											</div>
 										</div>
 									<?php else : ?>
@@ -43,9 +43,9 @@
 												<button type="submit" class=" btn btn-success">Submit</button>
 											</div>
 										</div>
-										<div class="col-2">
+										<div class="col-4">
 											<div class="form-group">
-												<button onclick=" confirmDelete('<?= site_url('peserta/truncate') ?>')" class="btn btn-danger float-right">Delete All</button>
+												<button onclick=" confirmDelete('<?= site_url('peserta/truncate') ?>')" class="btn btn-danger ">Delete All Data</button>
 											</div>
 										</div>
 										<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
