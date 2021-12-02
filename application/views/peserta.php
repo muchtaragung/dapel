@@ -99,12 +99,12 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Nama</th>
-												<th>Goal</th>
-												<th>Locus</th>
-												<th>Knowledge</th>
-												<th>Skill</th>
-												<th>Result</th>
+												<th>NAMA</th>
+												<th>CONFIDENCE/GOAL</th>
+												<th>COMITMENT/LOCUS</th>
+												<th>KNOWLEDGE</th>
+												<th>SKILL</th>
+												<th>RESULT</th>
 											</tr>
 										</thead>
 										<tbody>
