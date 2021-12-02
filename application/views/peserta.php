@@ -13,12 +13,26 @@
 			<div class="content-header">
 				<div class="container">
 					<div class="row mb-2">
-						<div class="col-sm-6">
+						<div class="col-6">
 							<h1 class="m-0">Data Pelatihan</h1>
 						</div><!-- /.col -->
-						<div class="col-sm-6">
-
-						</div><!-- /.col -->
+						<div class="col-6">
+							<form action="<?= site_url() ?>peserta/import" method="post" enctype="multipart/form-data">
+								<label for="exampleFormControlFile1">Import Data</label>
+								<div class="row">
+									<div class="col-8">
+										<div class="form-group">
+											<input type="file" name="csv" required accept=".csv" class="form-control">
+										</div>
+									</div>
+									<div class="col-2">
+										<div class="form-group">
+											<button type="submit" class=" btn btn-success">Submit</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div><!-- /.row -->
 				</div><!-- /.container-fluid -->
 			</div>

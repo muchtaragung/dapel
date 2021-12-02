@@ -7,6 +7,7 @@ class Peserta extends CI_Controller
     {
         parent::__construct();
         $this->load->model('peserta_model', 'peserta');
+        $this->load->model('data_model', 'data');
     }
 
 
@@ -15,17 +16,43 @@ class Peserta extends CI_Controller
         $data['dapel'] = $this->peserta->get_all()->result();
         $this->load->view('peserta', $data);
     }
-    public function detail($id_peserta)
+    public function import()
     {
-        $peserta = $this->peserta->get_where(['id_peserta' => $id_peserta])->row();
-        $nama = $peserta->nama_peserta;
-        // $superior_name = $peserta->superior_name;
-        // var_dump($peserta);
-        // var_dump($superior_name);
-        // die;
-        $data['peserta'] = $peserta;
-        $data['superior_name'] =  $this->peserta->get_where(['direct_superior' => $nama])->result();
-        $data['direct_superior'] =  $this->peserta->get_where(['superior_name' => $nama])->result();
-        $this->load->view('detail', $data);
+        $file = $_FILES['csv']['tmp_name'];
+
+        // Medapatkan ekstensi file csv yang akan diimport.
+        $ekstensi  = explode('.', $_FILES['csv']['name']);
+
+        // Tampilkan peringatan jika submit tanpa memilih menambahkan file.
+        if (empty($file)) {
+            $this->session->set_flashdata('error', 'Anda belum memilih file yang akan diimport.');
+        } else {
+            // Validasi apakah file yang diupload benar-benar file csv.
+            if (strtolower(end($ekstensi)) === 'csv' && $_FILES["csv"]["size"] > 0) {
+
+                $i = 0;
+                $handle = fopen($file, "r");
+                while (($row = fgetcsv($handle, 2048))) {
+                    $i++;
+                    if ($i == 1) continue;
+
+                    // Data yang akan disimpan ke dalam databse
+                    $data['nama']      = $row[1];
+                    $data['goal']      = strtolower($row[2]);
+                    $data['locus']     = strtolower($row[3]);
+                    $data['knowledge'] = strtolower($row[4]);
+                    $data['skill']     = strtolower($row[5]);
+
+                    // Simpan data ke database.
+                    $this->data->save($data);
+                }
+
+                fclose($handle);
+                $this->session->set_flashdata('msg', 'Berhasil Import Data');
+                redirect('peserta');
+            } else {
+                $this->session->set_flashdata('error', 'Anda belum memilih file yang akan diimport.');
+            }
+        }
     }
 }

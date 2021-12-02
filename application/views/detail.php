@@ -28,6 +28,14 @@
             <div class="content">
                 <div class="container">
                     <div class="row">
+                        <div class="col-12">
+                            <form action="<?= site_url() ?>peserta/import" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Import Data</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="csv">
+                                </div>
+                            </form>
+                        </div>
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
