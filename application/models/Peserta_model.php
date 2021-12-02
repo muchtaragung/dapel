@@ -1,7 +1,7 @@
 <?php
 class Peserta_model extends CI_Model
 {
-    private $table = 'peserta';
+    private $table = 'data';
 
     /**
      * menyimpan data ke tabel

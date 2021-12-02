@@ -14,7 +14,7 @@
 				<div class="container">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0">Data Pelatihan</h1>
+							<h1 class="m-0">Data Trakindo</h1>
 						</div><!-- /.col -->
 						<div class="col-sm-6">
 
@@ -35,12 +35,12 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Name</th>
-												<th>Potition</th>
-												<th>Jabatan</th>
-												<th>Area</th>
-												<th>Email</th>
-												<th>Batch</th>
+												<th>Nama</th>
+												<th>Goal</th>
+												<th>Locus</th>
+												<th>Knowledge</th>
+												<th>Skill</th>
+												<th>Result</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -49,12 +49,50 @@
 											foreach ($dapel as $data) : ?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><a href="<?= base_url() ?>peserta/detail/<?= $data->id_peserta ?>" target="_blank"><?= $data->nama_peserta ?></a></td>
-													<td><?= $data->posisi_peserta ?></td>
-													<td><?= $data->area_peserta ?></td>
-													<td><?= $data->jabatan_peserta ?></td>
-													<td><?= $data->email_peserta ?></td>
-													<td><?= $data->batch_peserta ?></td>
+													<td><?= $data->nama ?></td>
+													<td><?= $data->goal ?></td>
+													<td><?= $data->locus ?></td>
+													<td><?= $data->knowledge ?></td>
+													<td><?= $data->skill ?></td>
+													<td>
+														<?php
+														if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L0</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'internal') {
+															echo '<span style="background-color:orange" class="badge-lg badge badge-pill"2/1</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1/2</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'internal') {
+															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+															echo '<span class="badge-lg badge badge-pill badge-warning">L2</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'internal') {
+															echo '<span class="badge-lg badge badge-pill badge-warning">L2</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1/2</span>';
+														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'internal') {
+															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+															echo '<span class="badge-lg badge badge-pill badge-warning">L2/3</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'internal') {
+															echo '<span class="badge-lg badge badge-pill badge-warning">L2/3</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+															echo '<span class="badge-lg badge badge-pill badge-success">L3/2</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'internal') {
+															echo '<span class="badge-lg badge badge-pill badge-success">L3</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+															echo '<span class="badge-lg badge badge-pill badge-success">L3</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'internal') {
+															echo '<span class="badge-lg badge badge-pill badge-success">L3/4</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+															echo '<span class="badge-lg badge badge-pill badge-primary">L4/3</span>';
+														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'internal') {
+															echo '<span class="badge-lg badge badge-pill badge-primary">L4</span>';
+														} else {
+															$level['level'] = 'ERROR';
+														}
+														?>
+													</td>
 												</tr>
 											<?php endforeach ?>
 										</tbody>
