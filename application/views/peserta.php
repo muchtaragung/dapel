@@ -14,7 +14,7 @@
 				<div class="container">
 					<div class="row mb-2">
 						<div class="col-6">
-							<h1 class="m-0">Data Pelatihan</h1>
+							<h1 class="m-0">Data Trakindo</h1>
 						</div><!-- /.col -->
 					</div><!-- /.row -->
 				</div><!-- /.container-fluid -->
@@ -62,17 +62,17 @@
 														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'internal') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
 														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
-															echo '<span class="badge-lg badge badge-pill badge-warning">L2</span>';
+															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
 														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'internal') {
-															echo '<span class="badge-lg badge badge-pill badge-warning">L2</span>';
+															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
 														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'eksternal') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1/2</span>';
 														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'internal') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
 														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
-															echo '<span class="badge-lg badge badge-pill badge-warning">L2/3</span>';
+															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2/3</span>';
 														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'internal') {
-															echo '<span class="badge-lg badge badge-pill badge-warning">L2/3</span>';
+															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2/3</span>';
 														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'eksternal') {
 															echo '<span class="badge-lg badge badge-pill badge-success">L3/2</span>';
 														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'internal') {
