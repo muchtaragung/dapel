@@ -36,7 +36,7 @@
 							</div>
 						<?php else : ?>
 							<div class="col-6">
-								<button onclick=" confirmDelete('<?= site_url('peserta/truncate') ?>')" class="btn btn-danger float-right">Delete All</button>
+								<button onclick=" confirmDelete('<?= site_url('peserta/truncate') ?>')" class="btn btn-danger text-center">Delete All</button>
 							</div>
 							<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 							<script>
@@ -85,12 +85,12 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Nama</th>
-												<th>Goal</th>
-												<th>Locus</th>
-												<th>Knowledge</th>
-												<th>Skill</th>
-												<th>Result</th>
+												<th>NAMA</th>
+												<th>CONFIDENCE/GOAL</th>
+												<th>COMITMENT/LOCUS</th>
+												<th>KNOWLEDGE</th>
+												<th>SKILL</th>
+												<th>RESULT</th>
 											</tr>
 										</thead>
 										<tbody>
