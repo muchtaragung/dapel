@@ -16,46 +16,60 @@
 						<div class="col-6">
 							<h1 class="m-0">Data Trakindo</h1>
 						</div><!-- /.col -->
-						<?php if ($dapel == null) : ?>
-							<div class="col-6">
-								<form action="<?= site_url() ?>peserta/import" method="post" enctype="multipart/form-data">
-									<label for="exampleFormControlFile1">Import Data</label>
-									<div class="row">
-										<div class="col-8">
-											<div class="form-group">
-												<input type="file" name="csv" required accept=".csv" class="form-control">
-											</div>
+
+						<div class="col-6">
+							<form action="<?= site_url() ?>peserta/import" method="post" enctype="multipart/form-data">
+								<label for="exampleFormControlFile1">Import Data</label>
+								<div class="row">
+									<div class="col-6">
+										<div class="form-group">
+											<input type="file" name="csv" required accept=".csv" class="form-control">
 										</div>
+									</div>
+									<?php if ($dapel == null) : ?>
 										<div class="col-2">
 											<div class="form-group">
 												<button type="submit" class=" btn btn-success">Submit</button>
 											</div>
 										</div>
-									</div>
-								</form>
-							</div>
-						<?php else : ?>
-							<div class="col-6">
-								<button onclick=" confirmDelete('<?= site_url('peserta/truncate') ?>')" class="btn btn-danger text-center">Delete All</button>
-							</div>
-							<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-							<script>
-								function confirmDelete(link) {
-									Swal.fire({
-										title: 'Apakah Anda Ingin Menghapus Semua Data?',
-										icon: 'warning',
-										showCancelButton: true,
-										confirmButtonColor: '#3085d6',
-										cancelButtonColor: '#d33',
-										confirmButtonText: 'Ya'
-									}).then((result) => {
-										if (result.isConfirmed) {
-											window.location.replace(link)
-										}
-									})
-								}
-							</script>
-						<?php endif ?>
+										<div class="col-4">
+											<div class="form-group">
+												<button type="" class=" btn btn-danger disabled">Delete All Data</button>
+											</div>
+										</div>
+									<?php else : ?>
+										<div class="col-2">
+											<div class="form-group">
+												<button type="submit" class=" btn btn-success">Submit</button>
+											</div>
+										</div>
+										<div class="col-4">
+											<div class="form-group">
+												<button onclick=" confirmDelete('<?= site_url('peserta/truncate') ?>')" class="btn btn-danger ">Delete All Data</button>
+											</div>
+										</div>
+										<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+										<script>
+											function confirmDelete(link) {
+												Swal.fire({
+													title: 'Apakah Anda Ingin Menghapus Semua Data?',
+													icon: 'warning',
+													showCancelButton: true,
+													confirmButtonColor: '#3085d6',
+													cancelButtonColor: '#d33',
+													confirmButtonText: 'Ya'
+												}).then((result) => {
+													if (result.isConfirmed) {
+														window.location.replace(link)
+													}
+												})
+											}
+										</script>
+									<?php endif ?>
+								</div>
+							</form>
+						</div>
+
 					</div><!-- /.row -->
 				</div><!-- /.container-fluid -->
 			</div>
@@ -106,37 +120,37 @@
 													<td><?= $data->skill ?></td>
 													<td>
 														<?php
-														if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+														if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L0</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'internal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill"2/1</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1/2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'internal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'punya') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'internal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1/2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'internal') {
+														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'punya') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2/3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'tidak' && $data->locus == 'internal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2/3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
 															echo '<span class="badge-lg badge badge-pill badge-success">L3/2</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low' && $data->goal == 'punya' && $data->locus == 'internal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'punya') {
 															echo '<span class="badge-lg badge badge-pill badge-success">L3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
 															echo '<span class="badge-lg badge badge-pill badge-success">L3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'tidak' && $data->locus == 'internal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'tidak') {
 															echo '<span class="badge-lg badge badge-pill badge-success">L3/4</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'eksternal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
 															echo '<span class="badge-lg badge badge-pill badge-primary">L4/3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high' && $data->goal == 'punya' && $data->locus == 'internal') {
+														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'punya') {
 															echo '<span class="badge-lg badge badge-pill badge-primary">L4</span>';
 														} else {
 															$level['level'] = 'ERROR';
