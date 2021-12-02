@@ -100,8 +100,8 @@
 											<tr>
 												<th>No</th>
 												<th>NAMA</th>
-												<th>CONFIDENCE/GOAL</th>
-												<th>COMITMENT/LOCUS</th>
+												<th>GOAL</th>
+												<th>LOCUS</th>
 												<th>KNOWLEDGE</th>
 												<th>SKILL</th>
 												<th>RESULT</th>
@@ -133,7 +133,7 @@
 														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'tidak') {
 															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L1/2</span>';
 														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
-															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L2</span>';
+															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
 														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'punya') {
 															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
 														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
