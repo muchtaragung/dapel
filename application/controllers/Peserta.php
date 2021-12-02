@@ -55,4 +55,10 @@ class Peserta extends CI_Controller
             }
         }
     }
+    public function truncate()
+    {
+        $this->db->query('TRUNCATE `data`');
+        $this->session->set_flashdata('msg', 'Berhasil Menghapus Data');
+        redirect('peserta');
+    }
 }
