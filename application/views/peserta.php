@@ -100,8 +100,8 @@
 											<tr>
 												<th>No</th>
 												<th>NAMA</th>
-												<th>CONFIDENCE/GOAL</th>
-												<th>COMITMENT/LOCUS</th>
+												<th>GOAL</th>
+												<th>LOCUS</th>
 												<th>KNOWLEDGE</th>
 												<th>SKILL</th>
 												<th>RESULT</th>
