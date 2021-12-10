@@ -113,11 +113,11 @@
 											foreach ($dapel as $data) : ?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><?= $data->nama ?></td>
-													<td><?= $data->goal ?></td>
-													<td><?= $data->locus ?></td>
-													<td><?= $data->knowledge ?></td>
-													<td><?= $data->skill ?></td>
+													<td><?= ucwords($data->nama) ?></td>
+													<td><?= ucwords($data->goal) ?></td>
+													<td><?= ucwords($data->locus) ?></td>
+													<td><?= ucwords($data->knowledge) ?></td>
+													<td><?= ucwords($data->skill) ?></td>
 													<td>
 														<?php
 
