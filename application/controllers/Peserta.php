@@ -36,35 +36,6 @@ class Peserta extends CI_Controller
                     $i++;
                     if ($i == 1) continue;
 
-                    // goal
-                    if ($row[2] == 1) {
-                        $row[2] = 'punya';
-                    } else if ($row[2] == 2) {
-                        $row[2] = 'tidak';
-                    }
-
-                    // locus
-                    if ($row[3] == 1) {
-                        $row[3] = 'internal';
-                    } else if ($row[3] == 2) {
-                        $row[3] = 'eksternal';
-                    }
-
-                    // knowledge
-                    if ($row[4] == 1) {
-                        $row[4] = 'high';
-                    } else if ($row[4] == 2) {
-                        $row[4] = 'low';
-                    }
-
-                    // skill
-                    if ($row[5] == 1) {
-                        $row[5] = 'high';
-                    } else if ($row[5] == 2) {
-                        $row[5] = 'low';
-                    }
-
-
                     // Data yang akan disimpan ke dalam databse
                     $data['nama']      = $row[1];
                     $data['goal']      = strtolower($row[2]);
