@@ -120,40 +120,45 @@
 													<td><?= $data->skill ?></td>
 													<td>
 														<?php
-														if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
-															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L0</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'tidak') {
-															echo '<span style="background-color:orange" class="badge-lg badge badge-pill"1/2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
-															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L2/1</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'punya') {
-															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
-															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'tidak') {
-															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L1/2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
-															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2</span>';
-														} else if ($data->skill == 'low' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'punya') {
-															echo '<span style="background-color:orange" class="badge-lg badge badge-pill">L1</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
-															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2/3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'tidak') {
-															echo '<span class="badge-lg badge badge-pill badge-success">L3/2</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
-															echo '<span style="background-color:yellow" class="badge-lg badge badge-pill">L2/3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'low'  && $data->locus == 'internal' && $data->goal == 'punya') {
-															echo '<span class="badge-lg badge badge-pill badge-success">L3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'tidak') {
-															echo '<span class="badge-lg badge badge-pill badge-success">L3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'tidak') {
-															echo '<span class="badge-lg badge badge-pill badge-primary">L4/3</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'eksternal' && $data->goal == 'punya') {
-															echo '<span class="badge-lg badge badge-pill badge-success">L3/4</span>';
-														} else if ($data->skill == 'high' && $data->knowledge == 'high'  && $data->locus == 'internal' && $data->goal == 'punya') {
-															echo '<span class="badge-lg badge badge-pill badge-primary">L4</span>';
-														} else {
-															$level['level'] = 'ERROR';
+
+														if ($data->goal == 'punya' && $data->locus == 'internal') {
+															$mindset = 'good';
+														} elseif ($data->goal == 'punya' && $data->locus == 'eksternal') {
+															$mindset = 'mediocre';
+														} elseif ($data->goal == 'tidak' && $data->locus == 'internal') {
+															$mindset = 'mediocre';
+														} elseif ($data->goal == 'tidak' && $data->locus == 'internal') {
+															$mindset = 'poor';
+														}
+
+														if ($data->skill == 'high' && $data->knowledge == 'high') {
+															$competency = 'good';
+														} elseif ($data->skill == 'high' && $data->knowledge == 'low') {
+															$competency = 'mediocre';
+														} elseif ($data->skill == 'low' && $data->knowledge == 'high') {
+															$competency = 'mediocre';
+														} elseif ($data->skill == 'low' && $data->knowledge == 'low') {
+															$competency = 'poor';
+														}
+
+														if ($mindset == 'good' && $competency == 'good') {
+															echo	'<span class="badge badge-info">Good</span>';
+														} elseif ($mindset == 'mediocre' && $competency == 'mediocre') {
+															echo '<span class="badge badge-warning">Mediocre</span>';
+														} elseif ($mindset == 'poor' && $competency == 'mediocre') {
+															echo '<span class="badge badge-danger">Poor</span>';
+														} elseif ($mindset == 'poor' && $competency == 'good') {
+															echo '<span class="badge badge-warning">Mediocre</span>';
+														} elseif ($mindset == 'good' && $competency == 'poor') {
+															echo '<span class="badge badge-warning">Mediocre</span>';
+														} elseif ($mindset == 'good' && $competency == 'mediocre') {
+															echo	'<span class="badge badge-warning">Mediocre</span>';
+														} elseif ($mindset == 'poor' && $competency == 'poor') {
+															echo	'<span class="badge badge-danger">Poor</span>';
+														} elseif ($mindset == 'mediocre' && $competency == 'good') {
+															echo	'<span class="badge badge-warning">Mediocre</span>';
+														} elseif ($mindset == 'mediocre' && $competency == 'poor') {
+															echo	'<span class="badge badge-danger">Poor</span>';
 														}
 														?>
 													</td>
