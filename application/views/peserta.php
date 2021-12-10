@@ -129,16 +129,30 @@
 															$mindset = 'mediocre';
 														} elseif ($data->goal == 'tidak' && $data->locus == 'internal') {
 															$mindset = 'poor';
+														} else {
+															$mindset = 'Data Error';
 														}
 
 														if ($data->skill == 'high' && $data->knowledge == 'high') {
 															$competency = 'good';
+														} elseif ($data->skill == 'high' && $data->knowledge == 'mediocre') {
+															$competency = 'good';
 														} elseif ($data->skill == 'high' && $data->knowledge == 'low') {
 															$competency = 'mediocre';
+														} elseif ($data->skill == 'mediocre' && $data->knowledge == 'high') {
+															$competency = 'mediocre';
+														} elseif ($data->skill == 'mediocre' && $data->knowledge == 'mediocre') {
+															$competency = 'mediocre';
+														} elseif ($data->skill == 'mediocre' && $data->knowledge == 'low') {
+															$competency = 'poor';
 														} elseif ($data->skill == 'low' && $data->knowledge == 'high') {
 															$competency = 'mediocre';
+														} elseif ($data->skill == 'low' && $data->knowledge == 'mediocre') {
+															$competency = 'poor';
 														} elseif ($data->skill == 'low' && $data->knowledge == 'low') {
 															$competency = 'poor';
+														} else {
+															$competency = 'Data Error';
 														}
 
 														if ($mindset == 'good' && $competency == 'good') {
@@ -159,6 +173,8 @@
 															echo	'<span class="badge badge-warning">Mediocre</span>';
 														} elseif ($mindset == 'mediocre' && $competency == 'poor') {
 															echo	'<span class="badge badge-danger">Poor</span>';
+														} else {
+															echo	'<span class="badge badge-danger">Data Error</span>';
 														}
 														?>
 													</td>
